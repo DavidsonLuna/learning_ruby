@@ -13,10 +13,16 @@ puts "First try"
 puts "enter the number"
 kick = gets
 puts "Did you get it right? You kicked " + kick
-puts kick.to_i == secret_number
 
-if secret_number == kick.to_i
+right = secret_number == kick.to_i
+
+if right
   puts "You're right"
-else condition
-  puts "You missed"
+else
+  bigger = secret_number > kick.to_i
+  if bigger
+    puts "The secret number is bigger!"
+  else
+    puts "The secret number is smaller!"
+  end
 end
