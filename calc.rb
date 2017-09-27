@@ -1,3 +1,8 @@
+for fingers in 1..3
+  puts "Counting" + fingers.to_s
+end
+
+
 puts 175 == 175
 puts 175 == 174
 puts "175" == 175
