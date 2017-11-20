@@ -1,9 +1,9 @@
 def welcome
   puts "Welcome to the guessing game"
   puts "What's your name?"
-  name = gets
+  name = gets.strip
   "\n\n\n\n\n\n"
-  puts "Loading game for you, " + name
+  puts "Loading game for you, #{name}"
 end
 
 def draw_secret_number
@@ -15,11 +15,11 @@ end
 
 def ask_for_a_kick kicks, try, limit_of_try
   "\n\n\n\n\n\n"
-  puts "Try " + try.to_s + " of " + limit_of_try.to_s
-  puts "Kicks so far: " + kicks.to_s
+  puts "Try #{try} of #{limit_of_try}"
+  puts "Kicks so far: #{kicks}"
   puts "enter the number"
-  kick = gets
-  puts "Did you get it right? You kicked " + kick
+  kick = gets.strip
+  puts "Did you get it right? You kicked #{kick}"
   kick.to_i
 end
 
@@ -42,14 +42,20 @@ end
 
 welcome
 secret_number = draw_secret_number
+your_score_so_far = 1000
 
-limit_of_try = 6
+limit_of_try = 5
 kicks = []
-total_kicks = 0
 
 for try in 1..limit_of_try
   kick = ask_for_a_kick kicks, try, limit_of_try
-  kicks [total_kicks] = kick
-  total_kicks = total_kicks + 1
+  kicks << kick
+
+  score_to_lose = (kick - secret_number) / 2.0
+  your_score_so_far -= score_to_lose
+
+
   break if try_verify secret_number,kick
 end
+
+puts "You gained #{your_score_so_far} score."
