@@ -2,7 +2,7 @@
 #
 # puts try [0..4]
 #
-
+---------
 nome = gets.strip
 puts "Resultado: "
 puts "#{nome} tem #{nome.size} caracteres"

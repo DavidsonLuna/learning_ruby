@@ -8,7 +8,7 @@ end
 
 def draw_secret_number
   puts "Choosing a secret number between 0 and 200..."
-  drawn = 175
+  drawn = rand(200)
   puts "Chosen ... how about guessing our secret number today?"
   drawn
 end
@@ -51,7 +51,7 @@ for try in 1..limit_of_try
   kick = ask_for_a_kick kicks, try, limit_of_try
   kicks << kick
 
-  score_to_lose = (kick - secret_number) / 2.0
+  score_to_lose = (kick - secret_number).abs / 2.0
   your_score_so_far -= score_to_lose
 
 
